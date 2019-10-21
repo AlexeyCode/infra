@@ -6,10 +6,11 @@ resource "google_compute_instance" "app" {
   name = "reddit-app"
   machine_type = "g1-small"
   zone = "europe-west1-b"
+  tags = ["puma-server"]
  # определение загрузочного диска
   boot_disk {
   initialize_params {
-    image = "reddit-base-1571062041"
+    image = "reddit-base-1571673093"
    }
  }
  # определение сетевого интерфейса
