@@ -1,6 +1,6 @@
 provider "google" {
-  project = "infra-256612"
-  region  = "europe-west1"
+  project = var.project
+  region  = var.region
 }
 resource "google_compute_instance" "app" {
   name         = "reddit-app"
@@ -10,12 +10,12 @@ resource "google_compute_instance" "app" {
   # определение загрузочного диска
   boot_disk {
     initialize_params {
-      image = "reddit-base-1571673093"
+      image = var.disk_image
     }
   }
 
   metadata = {
-    sshKeys = "appuser:${file("~/.ssh/appuser.pub")}"
+    sshKeys = "appuser:${file(var.public_key_path)}"
   }
 
   tags = ["reddit-app"]
