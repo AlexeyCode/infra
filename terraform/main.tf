@@ -10,7 +10,7 @@ resource "google_compute_instance" "app" {
   # определение загрузочного диска
   boot_disk {
     initialize_params {
-      image = "reddit-base-1504777717"
+      image = "reddit-base-1571673093"
     }
   }
 
