@@ -7,7 +7,7 @@ resource "google_compute_instance" "app" {
   machine_type = "g1-small"
   zone = "europe-west1-b"
   tags = ["puma-server"]
-  metadata {
+  metadata = {
     ssh-keys = "appuser:${file("~/.ssh/id_rsa.pub")}"
   }
  # определение загрузочного диска
