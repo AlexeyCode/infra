@@ -14,7 +14,7 @@ resource "google_compute_instance" "app" {
     }
   }
 
-  metadata {
+  metadata = {
     sshKeys = "appuser:${file("~/.ssh/appuser.pub")}"
   }
 
