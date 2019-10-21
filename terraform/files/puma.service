@@ -10,8 +10,6 @@ After=network.target
 
 Type=simple
 
-EnvironmentFile=/home/appuser/db_config
-
 User=appuser
 
 WorkingDirectory=/home/appuser/reddit
