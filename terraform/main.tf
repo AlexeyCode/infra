@@ -8,7 +8,7 @@ resource "google_compute_instance" "app" {
   zone = "europe-west1-b"
   tags = ["puma-server"]
   metadata = {
-    ssh-keys = "appuser:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "appuser:${file("~/.ssh/appuser.pub")}"
   }
  # определение загрузочного диска
   boot_disk {
