@@ -30,7 +30,7 @@ resource "google_compute_instance" "app" {
   }
 
   connection {
-    host = self.public_ip
+    host = google_compute_instance.app.network_interface[0].access_config[0].nat_ip
     type        = "ssh"
     user        = "appuser"
     agent       = false
