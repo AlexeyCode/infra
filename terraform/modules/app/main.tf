@@ -28,7 +28,7 @@ resource "google_compute_instance" "app" {
 
   connection {
     # доступ ssh для provisioner
-    host        = google_compute_instance.app.network_interface[0].access_config[0].nat_ip
+    host        = google_compute_address.app_ip.address
     type        = "ssh"
     user        = "appuser"
     agent       = false
