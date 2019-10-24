@@ -2,6 +2,7 @@ resource "google_compute_instance" "app" {
   name         = "reddit-app"
   machine_type = "g1-small"
   zone         = "europe-west1-b"
+  tags         = ["reddit-app"]
 
   # определение загрузочного диска
   boot_disk {
@@ -9,12 +10,6 @@ resource "google_compute_instance" "app" {
       image = var.app_disk_image
     }
   }
-
-  metadata = {
-    sshKeys = "appuser:${file(var.public_key_path)}"
-  }
-
-  tags = ["reddit-app"]
 
   # определение сетевого интерфейса
   network_interface {
@@ -25,6 +20,10 @@ resource "google_compute_instance" "app" {
     access_config {
       nat_ip = google_compute_address.app_ip.address
     }
+  }
+
+  metadata = {
+    sshKeys = "appuser:${file(var.public_key_path)}"
   }
 
   connection {
