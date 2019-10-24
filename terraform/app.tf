@@ -47,7 +47,7 @@ resource "google_compute_instance" "app" {
 }
 
 resource "google_compute_address" "app_ip" {
-  name = "reddit-app-ip"
+  name = google_compute_address.app_ip.address
 }
 
 resource "google_compute_firewall" "firewall_puma" {
