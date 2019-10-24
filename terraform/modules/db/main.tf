@@ -29,3 +29,7 @@ resource "google_compute_firewall" "firewall_mongo" {
   # порт будет доступен только для инстансов с тегом ...
   source_tags = ["reddit-app"]
 }
+
+resource "google_compute_address" "db_ip" {
+  name = "reddit-db-ip"
+}
